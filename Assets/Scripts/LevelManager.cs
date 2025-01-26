@@ -1,18 +1,60 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class LevelManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static LevelManager main;
+
+    public Transform startPoint;
+    public Transform[] path;
+
+    public int currency;
+
+    private void Awake()
     {
-        
+        main = this;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        currency = 200;
     }
+
+    public void IncreaseCurrency(int amount)
+    {
+        currency += amount;
+    }
+
+    public bool SpendCurrency(int amount)
+    {
+        if(amount <= currency)
+        {
+            currency -= amount;
+            return true;
+        }
+        else
+        {
+            Debug.Log("NOPE");
+            return false;
+        }
+    }
+    public void NextScene()
+
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+    public void GameOver()
+
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+    public void Complete()
+
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+    }
+
 }
