@@ -5,6 +5,9 @@ Tower defence 2D game
 
 2.Two types of enemies
 
+
+One level, 4 waves
+
 ![image](https://github.com/user-attachments/assets/a3830920-78ef-47f2-84a1-8bf34aef01d5)
 
 WebGL:
